@@ -35,12 +35,44 @@ type Result struct {
 	Data interface{} `json:"data"`
 }
 
-// 返回值data
-type Data struct {
-	Total    int                      `json:"total"`
-	PageSize int                      `json:"pageSize"`
-	PageNo   int                      `json:"pageNo"`
-	List     []map[string]interface{} `json:"list"`
+func (r Result) ToCameras() (*Cameras, error) {
+	var ret Cameras
+	jsonRaw, err := json.Marshal(r.Data)
+	if err != nil {
+		return nil, err
+	}
+
+	err = json.Unmarshal(jsonRaw, &ret)
+	return &ret, err
+}
+
+func (r Result) ToUrl() (*Url, error) {
+	var ret Url
+	jsonRaw, err := json.Marshal(r.Data)
+	if err != nil {
+		return nil, err
+	}
+
+	err = json.Unmarshal(jsonRaw, &ret)
+	return &ret, err
+}
+
+type Camera struct {
+	CameraIndexCode string `json:"cameraIndexCode"`
+	CameraName      string `json:"cameraName"`
+	Status          string `json:"status"`
+}
+
+// 返回值Cameras
+type Cameras struct {
+	Total    int      `json:"total"`
+	PageSize int      `json:"pageSize"`
+	PageNo   int      `json:"pageNo"`
+	List     []Camera `json:"list"`
+}
+
+type Url struct {
+	Url string `json:"url"`
 }
 
 // @title		HTTP Post请求
