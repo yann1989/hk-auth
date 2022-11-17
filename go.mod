@@ -1,4 +1,4 @@
-module github.com/zxbit2011/hikvisionOpenAPIGo
+module github.com/yann1989/hk-auth
 
 go 1.18
 
