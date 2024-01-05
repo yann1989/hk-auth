@@ -7,7 +7,7 @@
 其他语言版本：[下载链接](https://open.hikvision.com/download/5c67f1e2f05948198c909700?type=10)
 # 快速使用
 ````
-> go get github.com/zxbit2011/hikvisionOpenAPIGo
+> go get github.com/yann1989/hk-auth
 ````
 # 示例代码
 ````
